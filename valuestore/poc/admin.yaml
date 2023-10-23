@@ -14,7 +14,7 @@ replicaCount: 1
 image:
   repository: krmygecr.azurecr.io/krmygecr
   pullPolicy: Always
-  tag: 6f8daf06148ef882568cae270a105a076f2a52ce
+  tag: 5a96c9648e1cc158dcc825d2d68c55b9e74ed433
 
 command:
 env:
