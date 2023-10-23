@@ -1,11 +1,11 @@
 #serviceaccount
 # Namespace configuration
-namespace: aud-dev-1
+namespace: app
 
 # App configuration
 app:
   name: admin
-  environment: dev-1
+  environment: poc
 
 # Number of pod replicas
 replicaCount: 1
