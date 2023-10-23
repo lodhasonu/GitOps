@@ -1,9 +1,17 @@
 applications:
 
-- name: frontend
+- name: frontend-v1
   namespace: app
   server: 'https://kubernetes.default.svc'
   path: krmyg/charts/audience-v1
   repoURL: 'git@github.com:sonulodha/GitOps.git'
   repoBranch: main
-  valueFile: ../../../valuestore/poc/frontend.yaml
+  valueFile: ../../../valuestore/poc/frontend/frontend-v1.yaml
+
+- name: frontend-v2
+  namespace: app
+  server: 'https://kubernetes.default.svc'
+  path: krmyg/charts/audience-v1
+  repoURL: 'git@github.com:sonulodha/GitOps.git'
+  repoBranch: main
+  valueFile: ../../../valuestore/poc/frontend/frontend-v2.yaml
