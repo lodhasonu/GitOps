@@ -12,7 +12,7 @@ replicaCount: 2
 
 # Container image details
 image:
-  repository: nginx
+  repository: krmygecr.azurecr.io/frontend
   pullPolicy: Always
   tag: latest
 
