@@ -4,7 +4,7 @@ namespace: app
 
 # App configuration
 app:
-  name: admin
+  name: frontend
   environment: poc
 
 # Number of pod replicas
@@ -12,20 +12,20 @@ replicaCount: 1
 
 # Container image details
 image:
-  repository: krmygecr.azurecr.io/krmygecr
+  repository: krmygecr.azurecr.io/frontend
   pullPolicy: Always
   tag: d74008bcd42c4972d7b2650a8fc463aa5264384e
 
 command:
 env:
   - name: DEPLOYMENT_ENV
-    value: "dev"
+    value: "poc"
 
 # container port configuration
 container:
   ports:
     # port for the application
-    - name: admin
+    - name: frontend
       containerPort: 80
       protocol: TCP
 
@@ -34,7 +34,7 @@ service:
   type: ClusterIP
   ports:
     # Service port for the application
-    - name: admin
+    - name: frontend
       port: 80
       protocol: TCP
       targetPort: 80
