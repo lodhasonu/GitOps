@@ -11,6 +11,7 @@ spec:
     repoURL: git@github.com:sonulodha/GitOps.git
     targetRevision: HEAD
     path: kmryg/charts/argo-applications
+    values:
     helm:
       valueFiles:
       - ../../../valuestore/applications/poc.yaml
