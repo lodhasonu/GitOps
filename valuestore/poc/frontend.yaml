@@ -12,9 +12,9 @@ replicaCount: 1
 
 # Container image details
 image:
-  repository: krmygecr.azurecr.io/frontend
+  repository: nginx
   pullPolicy: Always
-  tag: d74008bcd42c4972d7b2650a8fc463aa5264384e
+  tag: latest
 
 command:
 env:

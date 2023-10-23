@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: applications
+  name: application
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: git@github.com:sonulodha/GitOps.git
     targetRevision: HEAD
-    path: kmryg/charts/argo-applications
+    path: krmyg/charts/argo-applications
     helm:
       valueFiles:
       - ../../../valuestore/applications/poc.yaml
