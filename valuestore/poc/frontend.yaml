@@ -14,7 +14,7 @@ replicaCount: 2
 image:
   repository: krmygecr.azurecr.io/frontend
   pullPolicy: Always
-  tag: d74008bcd42c4972d7b2650a8fc463aa5264384e
+  tag: 8d01af6cb304fba653412c4cfb573b80492624cc
 
 command:
 env:
