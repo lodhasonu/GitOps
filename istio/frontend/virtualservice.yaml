@@ -14,13 +14,13 @@ spec:
   http:
   - route:
     - destination:
-        host: frontend-v1
+        host: frontend
         port:
           number: 80
         subset: v1
       weight: 50
     - destination:
-        host: frontend-v2
+        host: frontend
         port:
           number: 80
         subset: v2
