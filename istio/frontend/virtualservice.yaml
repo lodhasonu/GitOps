@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: frontend
+  namespace: app
+  labels:
+    name: frontend
+    environment: poc 
+spec:
+  gateways:
+  - default/app
+  hosts:
+  - app.mcrpv.in
+  http:
+  - route:
+    - destination:
+        host: frontend
+        port:
+          number: 80
+        subset: v1
+
