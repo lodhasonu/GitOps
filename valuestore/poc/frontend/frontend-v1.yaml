@@ -1,0 +1,113 @@
+# Namespace configuration
+namespace: app
+
+# App configuration
+app:
+  name: frontend-v1
+  environment: poc
+  version: v1
+
+# Number of pod replicas
+replicaCount: 1
+
+# Container image details
+image:
+  repository: krmygecr.azurecr.io/frontend
+  pullPolicy: Always
+  tag: latest
+
+command:
+env:
+  - name: DEPLOYMENT_ENV
+    value: "poc"
+
+# container port configuration
+container:
+  ports:
+    # port for the application
+    - name: frontend-v1
+      containerPort: 80
+      protocol: TCP
+
+# Service configuration
+service:
+  name: frontend
+  type: ClusterIP
+  ports:
+    # Service port for the application
+    - name: frontend-v1
+      port: 80
+      protocol: TCP
+      targetPort: 80
+# Resource limits and requests for pods
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+# Liveness probe configuration
+livenessProbe:
+  tcpSocket:
+    port: 80
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  successThreshold: 1
+  failureThreshold: 2
+
+# Readiness probe configuration
+readinessProbe:
+  tcpSocket:
+    port: 80
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  successThreshold: 1
+  failureThreshold: 2
+
+# Node selector for pod placement
+#nodeSelector:
+        #  architecture: arm
+        #  environment: dev-1
+        # product: audience
+
+# Tolerations to allow pod placement on specific nodes
+#tolerations:
+#  - key: audience-dev
+#    operator: Equal
+#    value: "true"
+#    effect: NoSchedule
+
+
+# Horizontal Pod Autoscaling configuration
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
+  #targetMemoryUtilizationPercentage: 60
+
+
+affinity: {}
+
+# serviceAccount:
+  # Specifies whether a service account should be created
+  # create: false
+  # Annotations to add to the service account
+  # annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  # name: ""
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+

@@ -4,17 +4,18 @@ namespace: app
 
 # App configuration
 app:
-  name: frontend
+  name: frontend-v2
   environment: poc
+  version: v2
 
 # Number of pod replicas
-replicaCount: 2
+replicaCount: 1
 
 # Container image details
 image:
   repository: krmygecr.azurecr.io/frontend
   pullPolicy: Always
-  tag: 8d01af6cb304fba653412c4cfb573b80492624cc
+  tag: latest
 
 command:
 env:
@@ -25,16 +26,17 @@ env:
 container:
   ports:
     # port for the application
-    - name: frontend
+    - name: frontend-v2
       containerPort: 80
       protocol: TCP
 
 # Service configuration
 service:
+  name: frontend
   type: ClusterIP
   ports:
     # Service port for the application
-    - name: frontend
+    - name: frontend-v2
       port: 80
       protocol: TCP
       targetPort: 80
