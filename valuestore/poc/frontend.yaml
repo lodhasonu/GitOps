@@ -8,7 +8,7 @@ app:
   environment: poc
 
 # Number of pod replicas
-replicaCount: 1
+replicaCount: 2
 
 # Container image details
 image:
