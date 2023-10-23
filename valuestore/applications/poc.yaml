@@ -1,0 +1,9 @@
+applications:
+
+- name: admin
+  namespace: app
+  server: 'https://kubernetes.default.svc'
+  path: krmy/charts/admin
+  repoURL: 'git@github.com:sonulodha/GitOps.git'
+  repoBranch: master
+  valueFile: ../../../valuestore/poc/admin.yaml

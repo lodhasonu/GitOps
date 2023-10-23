@@ -1,0 +1,14 @@
+{{- if gt .Values.autoscaling.minReplicas 1.0 }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ .Values.app.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+{{- toYaml .Values.app | nindent 4 }}
+spec:
+  minAvailable: {{ mulf .Values.autoscaling.minReplicas 0.30 | ceil }}
+  selector:
+    matchLabels:
+{{- toYaml .Values.app | nindent 6 }}
+{{- end }}
