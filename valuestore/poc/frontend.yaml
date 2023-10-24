@@ -9,7 +9,7 @@ replicaCount: 1
 
 image:
   repository: krmygecr.azurecr.io/frontend
-  tag: c6fc1c98217838cafb60cf7155ed7822b9000888
+  tag: c9d9a0f1c451cf8c59032b41bb0552aa8863b7ea
   pullPolicy: Always
 
 canary:
