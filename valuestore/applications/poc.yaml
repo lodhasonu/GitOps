@@ -1,7 +1,7 @@
 applications:
 
 - name: frontend
-  namespace: app
+  namespace: default
   server: 'https://kubernetes.default.svc'
   path: krmyg/charts/frontend
   repoURL: 'git@github.com:sonulodha/GitOps.git'
