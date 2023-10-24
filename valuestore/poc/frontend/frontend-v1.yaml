@@ -2,9 +2,9 @@
 namespace: app
 
 # App configuration
-app:
-  name: frontend-v1
-  environment: poc
+name: frontend-v1
+lables:
+  app: frontend
   version: v1
 
 # Number of pod replicas
@@ -35,7 +35,7 @@ service:
   type: ClusterIP
   ports:
     # Service port for the application
-    - name: frontend-v1
+    - name: frontend
       port: 80
       protocol: TCP
       targetPort: 80
@@ -111,3 +111,8 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+
+traffic:
+  domain: app.mcrpv.in
+  v1_weight: 40
+  v2_weight: 60

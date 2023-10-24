@@ -1,12 +1,11 @@
-#serviceaccount
 # Namespace configuration
 namespace: app
 
 # App configuration
-app:
-  name: frontend-v2
-  environment: poc
-  version: v2
+name: frontend-v2
+lables:
+  app: frontend
+  version: v1
 
 # Number of pod replicas
 replicaCount: 1
@@ -15,7 +14,7 @@ replicaCount: 1
 image:
   repository: krmygecr.azurecr.io/frontend
   pullPolicy: Always
-  tag: df4580654f4a1f9ca859d0a10b4a549eee115bed
+  tag: 8d01af6cb304fba653412c4cfb573b80492624cc
 
 command:
 env:
@@ -26,7 +25,7 @@ env:
 container:
   ports:
     # port for the application
-    - name: frontend-v2
+    - name: frontend-v1
       containerPort: 80
       protocol: TCP
 
@@ -36,7 +35,7 @@ service:
   type: ClusterIP
   ports:
     # Service port for the application
-    - name: frontend-v2
+    - name: frontend
       port: 80
       protocol: TCP
       targetPort: 80
@@ -112,3 +111,8 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+
+traffic:
+  domain: app.mcrpv.in
+  v1_weight: 40
+  v2_weight: 60
