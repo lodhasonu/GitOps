@@ -17,7 +17,7 @@ canary:
 
   image:
     repository: krmygecr.azurecr.io/frontend
-    tag: c6fc1c98217838cafb60cf7155ed7822b9000888
+    tags: c6fc1c98217838cafb60cf7155ed7822b9000888
     pullPolicy: Always
 
 nameOverride: ""

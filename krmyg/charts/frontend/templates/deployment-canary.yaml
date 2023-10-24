@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.canary.image.repository }}:{{ .Values.canary.image.tag }}"
+          image: "{{ .Values.canary.image.repository }}:{{ .Values.canary.image.tags }}"
           imagePullPolicy: {{ .Values.canary.image.pullPolicy }}
           ports:
             - name: http
