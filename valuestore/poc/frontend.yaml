@@ -9,16 +9,16 @@ replicaCount: 1
 
 image:
   repository: nginx
-  tag: stable
-  pullPolicy: IfNotPresent
+  tag: latest
+  pullPolicy: Always
 
 canary:
   replicaCount: 1
 
   image:
-    repository: nginx
-    tag: stable
-    pullPolicy: IfNotPresent
+    repository: krmygecr.azurecr.io/frontend
+    tag: c6fc1c98217838cafb60cf7155ed7822b9000888
+    pullPolicy: Always
 
 nameOverride: ""
 fullnameOverride: ""
