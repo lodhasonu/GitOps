@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: poc-applications
+  name: poc
   namespace: cd-tools
   finalizers:
     - resources-finalizer.argocd.argoproj.io
