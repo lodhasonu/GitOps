@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-pv-rolebinding
+subjects:
+- kind: ServiceAccount
+  name: argocd-application-controller
+  namespace: cd-tools
+roleRef:
+  kind: ClusterRole
+  name: argocd-pv-role
+  apiGroup: rbac.authorization.k8s.io
+
