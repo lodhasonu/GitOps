@@ -2,8 +2,8 @@
 # Declare variables to be passed into your templates.
 hostName: app.mcrpv.in
 Gateway: app
-ReleaseWeight: 100
-CanaryWeight: 0
+ReleaseWeight: 60
+CanaryWeight: 40
 
 replicaCount: 1
 
@@ -13,7 +13,7 @@ image:
   pullPolicy: Always
 
 canary:
-  replicaCount: 0
+  replicaCount: 1
 
   image:
     repository: krmygecr.azurecr.io/frontend
